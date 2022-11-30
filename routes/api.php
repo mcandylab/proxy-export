@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::post("/login", [AuthController::class, "login"]);
 
-Route::middleware("auth")->get("/user", function (Request $request) {
-    return $request->user();
+Route::middleware("auth")->group(function () {
+    Route::get("/user", [AuthController::class, "user"]);
 });
