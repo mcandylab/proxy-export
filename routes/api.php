@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\ProxyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,11 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
+
+    Route::prefix('proxies')
+        ->controller(ProxyController::class)
+        ->group(function () {
+            Route::post('/list', 'index');
+            Route::post('/export', 'export');
+        });
 });
