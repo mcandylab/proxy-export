@@ -36,3 +36,9 @@ cp .env.example .env
 email:       test@example.com
 password:    password
 ```
+
+### Postman коллекция
+Для тестирования запросов есть возможность импортировать готовую коллекцию в Postman
+
+Ссылка для импорта:
+https://documenter.getpostman.com/view/5644744/2s8YszQqpk#intro
