@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Provider;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -19,5 +20,7 @@ class DatabaseSeeder extends Seeder
                 "email" => "test@example.com",
             ]);
         }
+
+        Provider::factory()->create();
     }
 }
