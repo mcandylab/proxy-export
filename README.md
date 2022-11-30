@@ -29,3 +29,10 @@ cp .env.example .env
 ```
 ./vendor/bin/sail test
 ```
+
+### Учетные данные для аутентификации по API
+
+```
+email:       test@example.com
+password:    password
+```
