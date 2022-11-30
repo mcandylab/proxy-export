@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('proxies')
+    ->controller(ProxyController::class)
+    ->group(function () {
+        Route::post('/list', 'index');
+        Route::post('/export', 'export');
+    });
+
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
-
-    Route::prefix('proxies')
-        ->controller(ProxyController::class)
-        ->group(function () {
-            Route::post('/list', 'index');
-            Route::post('/export', 'export');
-        });
 });
