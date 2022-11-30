@@ -3,15 +3,14 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Database\Factories\UserFactory;
 use Hash;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
-    use WithFaker, DatabaseTransactions;
+    use WithFaker, RefreshDatabase;
 
     public function test_mail_is_required()
     {
