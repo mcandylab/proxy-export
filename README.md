@@ -24,3 +24,8 @@ cp .env.example .env
 ```
 ./vendor/bin/sail artisan migrate --seed
 ```
+
+Запуск тестов
+```
+./vendor/bin/sail test
+```
