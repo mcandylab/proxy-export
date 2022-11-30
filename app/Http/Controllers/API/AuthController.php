@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Provider;
-use App\Models\Proxy;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -26,15 +24,14 @@ class AuthController extends Controller
             ])
         );
 
-        if (!$token) {
+        if (! $token) {
             return response()->json(['message' => 'Incorrect login or password', 'errors' => ['password' => 'Incorrect login or password']], 422);
         }
 
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' =>
-                auth()
+            'expires_in' => auth()
                     ->factory()
                     ->getTTL() * 60,
         ]);
