@@ -1,3 +1,12 @@
+**Используемые пакеты:**
+
+- **Laravel Pint + Prettier** для автоформатирования кода
+- **Laravel Sail** для запуска проекта в Docker
+- **Laravel Excel** для генерации CSV ( https://laravel-excel.com/ )
+- **jwt-auth** для создания аутентификации на базе JWT ( https://github.com/PHP-Open-Source-Saver/jwt-auth )
+
+
+
 ### Запуск проекта
 
 Установка зависимостей
@@ -25,7 +34,9 @@ cp .env.example .env
 ./vendor/bin/sail artisan migrate --seed
 ```
 
-Запуск тестов
+### Запуск тестов
+
+Написаны интеграционные тесты для API эндпоинтов
 ```
 ./vendor/bin/sail test
 ```
