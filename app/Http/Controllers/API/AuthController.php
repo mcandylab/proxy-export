@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Provider;
+use App\Models\Proxy;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -19,22 +21,19 @@ class AuthController extends Controller
     {
         $token = Auth::attempt(
             $request->validate([
-                "email" => "required|email|exists:users",
-                "password" => "required",
+                'email' => 'required|email|exists:users',
+                'password' => 'required',
             ])
         );
 
         if (!$token) {
-            return response()->json(
-                ["message" => "Incorrect login or password"],
-                401
-            );
+            return response()->json(['message' => 'Incorrect login or password'], 401);
         }
 
         return response()->json([
-            "access_token" => $token,
-            "token_type" => "bearer",
-            "expires_in" =>
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' =>
                 auth()
                     ->factory()
                     ->getTTL() * 60,

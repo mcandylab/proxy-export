@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Provider;
+use App\Models\Proxy;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -15,12 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        if (!User::where("email", "test@example.com")->exists()) {
+        if (!User::where('email', 'test@example.com')->exists()) {
             User::factory()->create([
-                "email" => "test@example.com",
+                'email' => 'test@example.com',
             ]);
         }
 
-        Provider::factory()->create();
+        $provider = Provider::factory()->create();
+
+        Proxy::factory(10)->create(['provider_id' => $provider->id]);
     }
 }

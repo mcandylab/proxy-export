@@ -12,29 +12,14 @@ class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = ["name", "email", "password"];
+    protected $fillable = ['name', 'email', 'password'];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = ["password", "remember_token"];
+    protected $hidden = ['password', 'remember_token'];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
-        "created_at" => "datetime:d.m.Y H:i:s",
-        "updated_at" => "datetime:d.m.Y H:i:s",
-        "email_verified_at" => "datetime:d.m.Y H:i:s",
+        'created_at' => 'datetime:d.m.Y H:i:s',
+        'updated_at' => 'datetime:d.m.Y H:i:s',
+        'email_verified_at' => 'datetime:d.m.Y H:i:s',
     ];
 
     /**

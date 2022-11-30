@@ -4,21 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Provider extends Model
+class Proxy extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title'];
+    protected $fillable = ['provider_id', 'ip', 'port', 'login', 'password'];
 
     protected $casts = [
         'created_at' => 'datetime:d.m.Y H:i:s',
         'updated_at' => 'datetime:d.m.Y H:i:s',
     ];
 
-    public function proxies(): HasMany
+    public function provider(): BelongsTo
     {
-        return $this->hasMany(Proxy::class);
+        return $this->belongsTo(Provider::class);
     }
 }

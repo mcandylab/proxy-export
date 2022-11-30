@@ -10,12 +10,17 @@ composer i
 cp .env.example .env
 ```
 
-Генерация секретного ключа для JWT
-```
-php artisan jwt:secret
-```
-
 Запуск Docker контейнера
 ```
 ./vendor/bin/sail up -d
+```
+
+Генерация секретного ключа для JWT
+```
+./vendor/bin/sail artisan jwt:secret
+```
+
+Запуск миграции с генерацией тестовых данных
+```
+./vendor/bin/sail artisan migrate --seed
 ```
